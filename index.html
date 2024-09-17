@@ -4,8 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World</title>
+    <style>
+        /* Resetting margin and padding for body to ensure full-width coverage */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* Make sure the container div is always square and full width */
+        .square-container {
+            width: 100vw; /* Full viewport width */
+            height: 100vw; /* Same as width to maintain a square shape */
+            display: flex;
+            align-items: center; /* Center items vertically */
+            justify-content: center; /* Center items horizontally */
+            background-color: red; /* Light grey background color */
+        }
+
+        /* Center the text */
+        .square-container h1 {
+            margin: 0;
+            font-size: 2rem; /* Responsive text size */
+            color: #333; /* Dark text color */
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, World</h1>
+    <div class="square-container">
+        <h1>Hello, World</h1>
+    </div>
 </body>
 </html>
