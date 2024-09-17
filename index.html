@@ -19,14 +19,46 @@
             display: flex;
             align-items: center; /* Center items vertically */
             justify-content: center; /* Center items horizontally */
-            background-color: red; /* Light grey background color */
+            position: relative; /* Needed for absolute positioning of pseudo-elements */
+            background-color: black; /* Black background for VHS effect */
+            overflow: hidden; /* Hide overflow to ensure the effect stays within bounds */
+            z-index: 0; /* Ensure that VHS effect stays behind the text */
         }
 
         /* Center the text */
         .square-container h1 {
             margin: 0;
             font-size: 2rem; /* Responsive text size */
-            color: #333; /* Dark text color */
+            color: #fff; /* White text color for contrast against black background */
+            z-index: 1; /* Ensure text stays on top of the VHS effect */
+        }
+
+        /* VHS effect */
+        .square-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                rgba(255, 255, 255, 0.1) 0px,
+                rgba(255, 255, 255, 0.1) 2px,
+                rgba(0, 0, 0, 0.1) 2px,
+                rgba(0, 0, 0, 0.1) 3px
+            );
+            background-size: 100% 5px;
+            animation: vhs-effect 2s infinite linear;
+            z-index: 0;
+        }
+
+        @keyframes vhs-effect {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
         }
     </style>
 </head>
